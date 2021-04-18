@@ -7,7 +7,6 @@ exports.up = function(knex) {
             table.string('title');
             table.string('director');
             table.string('metascore');
-            table.string('')
         })
         .createTable('stars', table => {
             table.increments();
@@ -17,13 +16,13 @@ exports.up = function(knex) {
             table.integer('moviesId')
                 .unsigned()
                 .notNullable()
-                .reference('movies.id')
+                .references('movies.id')
                 .onDelete('CASCADE')
                 .onUpdate('CASCADE');
             table.integer('starsId')
                 .unsigned()
                 .notNullable()
-                .reference('stars.id')
+                .references('stars.id')
                 .onDelete('CASCADE')
                 .onUpdate('CASCADE');
             table.primary(['moviesId', 'starsId'])
