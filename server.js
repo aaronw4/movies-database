@@ -3,7 +3,7 @@ const CORS = require("cors");
 
 const server = express();
 
-server.use(bodyParser.json());
+server.use(express.json());
 server.use(CORS());
 
 let movies = [
